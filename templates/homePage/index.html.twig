@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <section class="container-fluid" >
+        <div class="card-group container">
+            <div class="row row-cols-1 row-cols-md-3 flex-grow-4 flex-wrap">
+                {% for i in range(1,20) %}
+                    <div class="col mb-5">
+                        <div class="card shadow"  style="width: 18rem;height: 100%"  >
+                            <img src="https://via.placeholder.com/300" class="card-img-top" height="300px" width="200px" alt="...">
+                            <p class="card-user-name" >Soko Mamadou ibrahima</p>
+                            <div class="card-body">
+                                <h5 class="card-title pt-3">Développeur Web Fullstack Php Symfony</h5>
+                                <p class="card-text pb-4 pt-2 ">
+                                    <span class="badge bg-blue-lite text-color-blue-lite" >PHP</span>
+                                    <span class="badge bg-blue-lite text-color-blue-lite" >JAVA</span>
+                                    <span class="badge bg-blue-lite text-color-blue-lite" >C#</span>
+                                    <span class="badge bg-blue-lite text-color-blue-lite" >ANDROID</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,101 @@
+body{
+    background-color: #f7f7f5;
+}
+.bg-blue-lite
+{
+    /*font-family: Agrandir Tight,Arial,Helvetica,sans-serif;*/
+    font-family: Moderat,Arial,Helvetica,sans-serif;
+    background-color: #bac0f7; ;
+}
+
+.text-color-blue-lite
+{
+    background-color: #c4c5ec; ;
+}
+.bg-blue-dark
+{
+    background-color: #014554;
+}
+.bg-rose-dark
+{
+    background-color: #fa7070;
+}
+
+.card-user-name
+{
+    font-size: 24px;
+    position: absolute;
+    margin-top: 50mm;
+    font-weight: bold;
+    padding: 18px;
+    color: #ffffff;
+}
+
+.container-detail-profile
+{
+    background-color: #000;
+    height: 50vh;
+}
+.detail-profil-image
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.detail-profil-image > img
+{
+    align-content: center;
+    width: 80%;
+    border-radius: 80%;
+}
+.detail-profil-title
+{
+    font-size: 32px;
+    font-weight: 700;
+    color: #38383e;
+    word-break: break-word;
+}
+.detail-profil-sub-title
+{
+    margin-bottom: .5em;
+    color: #38383e;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.25;
+    word-break: break-word;
+}
+.detail-profil-card-text
+{
+    font-weight: 600;
+}
+.detail-profil-btn
+{
+    padding: 15px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+.competence-title
+{
+    font-size: 24px !important;
+    color: #979a9d;
+}
+.detail-profil-card-link
+{
+    text-decoration: none;
+    color: #014554;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.detail-profil-experience-title
+{
+    color: #374b54;
+    font-size: 20px;
+    font-weight: bold;
+}
+.detail-profil-experience-subtitle
+{
+    color: #374b54;
+    font-size: 14px;
+    font-weight: bold;
+}
