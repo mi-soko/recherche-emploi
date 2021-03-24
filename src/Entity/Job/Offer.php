@@ -10,6 +10,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\OfferRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Class Offer
  * @package App\Entity\User
@@ -45,6 +47,13 @@ class Offer
      * @ORM\ManyToOne(targetEntity="App\Entity\User\Compagnie",inversedBy="offers")
      */
     private Compagnie $compagnie;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private string $jobDescription;
 
     /**
      * @var DateTime

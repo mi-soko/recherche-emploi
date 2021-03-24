@@ -38,10 +38,16 @@ class Jobseeker extends User
     private Categories $category;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Job\Experience",mappedBy="jobSeeker")
+     */
+    private Collection $experience;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
         $this->offer = new ArrayCollection();
+        $this->experience = new ArrayCollection();
     }
 
     public function getRoles():?array
