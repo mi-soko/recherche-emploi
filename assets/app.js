@@ -9,5 +9,9 @@
 import './styles/app.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './js/btn-selected'
+const $ = require('jquery');
+global.$ = global.jQuery = $;
 // start the Stimulus application
 import './bootstrap';
+

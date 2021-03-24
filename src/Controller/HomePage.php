@@ -37,4 +37,13 @@ class HomePage extends AbstractController
     {
         return $this->render("profile/cv/detailCv.html.twig");
     }
+
+    /**
+     * @Route("/profil/cv/create",name="profil_create_cv")
+     * @return Response
+     */
+    public function create():Response
+    {
+        return $this->render("profile/cv/createCv.html.twig");
+    }
 }
