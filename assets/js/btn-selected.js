@@ -1,6 +1,7 @@
 const btnExperience = document.querySelectorAll("#btn-experience");
 const selectInput = document.querySelector(".js-select-multiple")
 const textError = document.querySelectorAll('.badge-danger')
+const experienceLevel = document.querySelector('#experience-level')
 /**
  * permet de sélectionner un element
  */
@@ -18,7 +19,7 @@ btnExperience.forEach((i,index) => {
             evt.target.classList.remove('active-btn-experience')
         }
         evt.target.classList.add('active-btn-experience')
-        evt.target.value = evt.target.content
+        experienceLevel.value = evt.target.value;
     })
 })
 

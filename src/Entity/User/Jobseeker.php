@@ -25,7 +25,6 @@ class Jobseeker extends User
      */
     private Collection $offer;
 
-
     /**
      * @var ArrayCollection|Collection
      * @ORM\ManyToMany(targetEntity="App\Entity\Job\Skills",mappedBy="jobSeeker")

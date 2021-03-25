@@ -3,20 +3,14 @@
 {% block body %}
     <section class="container p-5" >
 
-        <form action="#">
+        {{ form_start(form) }}
             <h1 class="detail-profil-title mb-5" >Votre profil professionnel</h1>
             <div class="card mt-4" >
                 <div class="card-body" >
                     <h1 class="detail-profil-sub-title" >Votre catégorie</h1>
                     <div class="card-body p-0 pb-3" >
                         <div class="form-group">
-                            <label for="" class="" ></label>
-                            <select name="" class="custom-select form-control col-12" id="">
-                                <option value="-1" >Comment</option>
-                                <option value="-1" >Comment</option>
-                                <option value="-1" >Comment</option>
-                                <option value="-1" >Comment</option>
-                            </select>
+                            {{ form_widget(form.categories,{'attr':{'class':"custom-select form-control col-12"}}) }}
                         </div>
                     </div>
                 </div>
@@ -28,7 +22,7 @@
                     <div class="card-body p-0 pb-3" >
                         <div class="form-group">
                             <label for="" class="" ></label>
-                            <input class="form-control"  type="text" placeholder="Ex: Développeur PHP senior,Ingénieur en Reseau">
+                            {{ form_widget(form.profileTitle) }}
                         </div>
                     </div>
                 </div>
@@ -40,13 +34,13 @@
                     <div class="card-body p-0 pb-3" >
                         <div class="form-group">
                             <label for="" class="" ></label>
-                            <input class="form-control"  type="text" placeholder="Ex: Dakar Fann Hock">
+                            {{ form_widget(form.address) }}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card mt-3" >
+            <div class="card mt-3">
                 <div class="card-body" >
                     <h1 class="detail-profil-sub-title" >Votre niveau d'expérience</h1>
                     <div class="card-body p-0 pb-3" >
@@ -55,9 +49,10 @@
                                 Ces 3 niveaux d'expérience sont utilisés à titre indicatif et correspondent habituellement aux niveaux junior (0-2 ans), intermédiaire (2-7 ans) et senior (7 ans et +).
                             </p>
                             <div >
-                                <button class="btn text-color-blue-lite active-btn-experience" id="btn-experience" >0-2 ans</button>
-                                <button class="btn text-color-blue-lite"  id="btn-experience">2-7 ans </button>
-                                <button class="btn text-color-blue-lite" id="btn-experience" >7ans et +</button>
+                                <input type="hidden" id="experience-level" value="" name="cv_form[experienceLevels]" >
+                                <button value="1" name="" class="btn text-color-blue-lite active-btn-experience" id="btn-experience" >0-2 ans</button>
+                                <button value="2" name="" class="btn text-color-blue-lite" id="btn-experience">2-7 ans </button>
+                                <button value="3" name="" class="btn text-color-blue-lite" id="btn-experience" >7ans et +</button>
                             </div>
                         </div>
                     </div>
@@ -73,12 +68,7 @@
                     </p>
                     <div class="card-body p-0 pb-3" >
                         <div class="form-group">
-                            <label for="" class="" ></label>
-                            <select class="js-select-multiple form-control" name="states[]" multiple="multiple">
-                            <option value="AL">Alabama</option>
-                            ...
-                            <option value="WY">Wyoming</option>
-                            </select>
+                            {{ form_widget(form.skills,{'attr':{'class':"js-select-multiple form-control col-md-12 col-12"}}) }}
                         </div>
                     </div>
                 </div>
@@ -89,13 +79,13 @@
                     <div class="card-body p-0 pb-3" >
                         <div class="form-group">
                             <label for="" class="" ></label>
-                            <input class="form-control"  type="text" placeholder="Ex: 772199737 ">
+                            {{ form_widget(form.phoneNumber) }}
                         </div>
                     </div>
                 </div>
             </div>
             <button class="btn active-btn-experience offset-5 off mt-5 mb-5 " >Terminer</button>
-        </form>
+        {{ form_end(form) }}
     </section>
     <script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 {% endblock %}

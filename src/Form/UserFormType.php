@@ -41,9 +41,7 @@ class UserFormType extends AbstractType
 
         $builder
             ->add('fullName',TextType::class,[
-                'attr' => [
-                    'required'   => false,
-                ]
+                'required'   => false,
             ])
             ->add('phoneNumber',NumberType::class,[
                 'attr' => [

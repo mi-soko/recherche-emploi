@@ -10,6 +10,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\OfferRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Class Offer
  * @package App\Entity\User
@@ -37,6 +39,15 @@ class Categories
      * @var Collection|null
      */
     private Collection $jobSeeker;
+
+
+    /**
+     * @Assert\NotBlank()
+     * @var string
+     * @ORM\Column(type="text")
+     */
+    private string $name;
+
 
     public function __construct()
     {
@@ -68,4 +79,19 @@ class Categories
         return $this->jobSeeker;
     }
 
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
 }
