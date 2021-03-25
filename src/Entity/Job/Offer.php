@@ -46,7 +46,7 @@ class Offer
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User\Compagnie",inversedBy="offers")
      */
-    private Compagnie $compagnie;
+    private ?Compagnie $compagnie = null;
 
     /**
      * @Assert\NotBlank()

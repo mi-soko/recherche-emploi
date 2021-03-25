@@ -32,13 +32,13 @@ class Categories
      * @ORM\OneToMany(mappedBy="categories",targetEntity="App\Entity\Job\Offer")
      * @var Collection|null
      */
-    private Collection $offer;
+    private ?Collection $offer = null;
 
     /**
      * @ORM\OneToMany(mappedBy="category",targetEntity="App\Entity\User\Jobseeker")
      * @var Collection|null
      */
-    private Collection $jobSeeker;
+    private ?Collection $jobSeeker = null;
 
 
     /**
@@ -62,6 +62,7 @@ class Categories
     {
         return $this->id;
     }
+
 
     /**
      * @return Collection|null

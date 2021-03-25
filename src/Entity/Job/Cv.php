@@ -49,13 +49,6 @@ class Cv
      */
     private string $experienceLevels;
 
-    /**
-     * @Assert\NotNull()
-     * @Assert\NotBlank()
-     * @var string
-     */
-    private string $phoneNumber;
-
     public function __construct()
     {
         $this->skills = new ArrayCollection();

@@ -1,13 +1,12 @@
 const btnExperience = document.querySelectorAll("#btn-experience");
 const selectInput = document.querySelector(".js-select-multiple")
 const textError = document.querySelectorAll('.badge-danger')
-const experienceLevel = document.querySelector('#experience-level')
+const experienceLevel = document.querySelector('#cv_form_experienceLevels')
 /**
  * permet de sélectionner un element
  */
 btnExperience.forEach((i,index) => {
-    // supprimer tout les elements qui sont active
-    i.classList.remove('active-btn-experience')
+    // supprimer tout les elements qui sont activ
 
     i.addEventListener("click",evt => {
         evt.preventDefault();

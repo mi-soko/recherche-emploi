@@ -48,11 +48,29 @@
                             <p class="p-4 text-justify" >
                                 Ces 3 niveaux d'expérience sont utilisés à titre indicatif et correspondent habituellement aux niveaux junior (0-2 ans), intermédiaire (2-7 ans) et senior (7 ans et +).
                             </p>
+
                             <div >
-                                <input type="hidden" id="experience-level" value="" name="cv_form[experienceLevels]" >
-                                <button value="1" name="" class="btn text-color-blue-lite active-btn-experience" id="btn-experience" >0-2 ans</button>
-                                <button value="2" name="" class="btn text-color-blue-lite" id="btn-experience">2-7 ans </button>
-                                <button value="3" name="" class="btn text-color-blue-lite" id="btn-experience" >7ans et +</button>
+                                {{ form_widget(form.experienceLevels) }}
+
+                                <button value="1" name="" class="btn text-color-blue-lite
+                                        {% if form.experienceLevels.vars.value == "1" %}
+                                            active-btn-experience
+                                        {% endif %}
+                                        "
+                                        id="btn-experience" >0-2 ans</button>
+                                <button value="2" name="" class="btn text-color-blue-lite
+                                          {% if form.experienceLevels.vars.value ==  "2"%}
+                                            active-btn-experience
+                                            {% endif %}
+                                            " id="btn-experience">2-7 ans </button>
+                                <button value="3" name=""
+                                        class="btn text-color-blue-lite
+                                                  {% if form.experienceLevels.vars.value == "3"%}
+                                                    active-btn-experience
+                                             {% endif %}
+                                            "
+
+                                        id="btn-experience" >7ans et +</button>
                             </div>
                         </div>
                     </div>
@@ -69,17 +87,6 @@
                     <div class="card-body p-0 pb-3" >
                         <div class="form-group">
                             {{ form_widget(form.skills,{'attr':{'class':"js-select-multiple form-control col-md-12 col-12"}}) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mt-3" >
-                <div class="card-body" >
-                    <h1 class="detail-profil-sub-title" >Numéro Telephone *</h1>
-                    <div class="card-body p-0 pb-3" >
-                        <div class="form-group">
-                            <label for="" class="" ></label>
-                            {{ form_widget(form.phoneNumber) }}
                         </div>
                     </div>
                 </div>

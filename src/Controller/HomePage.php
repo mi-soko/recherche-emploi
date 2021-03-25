@@ -29,13 +29,5 @@ class HomePage extends AbstractController
         return $this->render("homePage/index.html.twig");
     }
 
-    /**
-     * @Route("/profil/detail",name="profil_detail_cv")
-     * @return Response
-     */
-    public function detailCv():Response
-    {
-        return $this->render("profile/cv/detailCv.html.twig");
-    }
 
 }

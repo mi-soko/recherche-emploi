@@ -38,7 +38,7 @@ class Skills
     private ?Collection  $offers;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User\Jobseeker",inversedBy="skills")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User\Jobseeker",mappedBy="skills")
      */
     private ?Collection  $jobSeeker;
 
@@ -87,5 +87,15 @@ class Skills
     {
         $this->name = $name;
     }
+
+    /**
+     * @param ArrayCollection|Collection|null $jobSeeker
+     */
+    public function setJobSeeker($jobSeeker): void
+    {
+        $this->jobSeeker = $jobSeeker;
+    }
+
+
 
 }

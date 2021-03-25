@@ -12,6 +12,7 @@ use App\Repository\Job\CategoriesRepository;
 use App\Repository\Job\SkillsRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -48,19 +49,15 @@ final class CvFormType extends AbstractType
             'choice_label' => 'name',
             'choices' => $this->skillsRepository->findAll(),
         ]);
+        $builder->add("experienceLevels",HiddenType::class);
 
 
         $builder->add("profileTitle", TextType::class,[
             'attr' => [
                 'placeholder' => 'Ex: Développeur PHP senior,Ingénieur en Reseau',
             ]
-        ]);
+        ])
 
-            $builder->add("phoneNumber", TextType::class,[
-                'attr' => [
-                    'placeholder' => 'Ex: 772199737 ',
-                ]
-            ])
             ->add("address", TextType::class,[
                 'attr' => [
                     'placeholder' => 'Ex: Dakar Fann Hock',
