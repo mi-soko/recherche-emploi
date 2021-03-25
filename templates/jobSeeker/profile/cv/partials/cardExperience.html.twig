@@ -1,27 +1,19 @@
  <div class="card shadow bg-white" >
         <div class="card-body p-5">
-            <h4 class="competence-title pb-3">Experience</h4>
-            {% for i in 1..4 %}
+            <div class="justify-content-between d-flex align-items-center  mb-5  flex-row" >
+                <h4 class="competence-title">Experience</h4>
+                <a href="{{ path('app_jobseeker_create_experience') }}" class="btn text-white detail-profil-btn bg-rose-dark">
+                    Ajouter une experience
+                </a>
+            </div>
+
+            {% for experience in user.experience %}
                 <div class="card-body">
-                    <h3 class="detail-profil-experience-title" >XpressRun</h3>
-                    <h6 class="detail-profil-experience-subtitle" >Développeur Web & Directeur technique</h6>
-                    <h6 class="detail-profil-experience-subtitle" >octobre 2017 - Aujourd'hui</h6>
-                    <p>
-                        Je suis le co-fondateur de la société Webdeclic (webdeclic.com), c'est mon activité principale, je suis en charge de la direction de l'équipe technique (développeurs / designers) et j'assume aussi le rôle de développeur senior dans l'équipe.
-                        Wordpress
-                        JavaScript
-                        PHP
-                        HTML
-                        CSS
-                        Adobe Photoshop
-                        Adobe Illustrator
-                        Eric Dampierre - Point S - V
-                        Chargé de communication
-                        Ludwig par le biais de son agence de communication Webdeclic, a fait un travail formidable sur notre site web.
-
-                        Le travail qu'il a fourni à dépassé nos espérances 👍.
-
-                        Points forts : à l'écoute 👂🏻, efficace 😎 et designs soignés 🎨.
+                    <h3 class="detail-profil-experience-title" >{{ experience.compagnieName }}</h3>
+                    <h6 class="detail-profil-experience-subtitle" >{{ experience.posteOccupe }}</h6>
+                    <h6 class="detail-profil-experience-subtitle" >{{ experience.dure }}</h6>
+                    <p class="text-center text-justify" >
+                       {{ experience.description | raw }}
                     </p>
                     <div class="dropdown-divider mt-5 mb-5" ></div>
                 </div>

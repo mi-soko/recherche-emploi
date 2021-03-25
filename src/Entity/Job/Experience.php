@@ -26,6 +26,26 @@ class Experience
      */
     private ?int $id = null;
 
+    /**
+     * @Assert\NotBlank()
+     * @var string|null
+     * @ORM\Column(type="string")
+     */
+    private string $compagnieName;
+
+    /**
+     * @Assert\NotBlank()
+     * @var string|null
+     * @ORM\Column(type="string")
+     */
+    private string $posteOccupe;
+
+    /**
+     * @Assert\NotBlank()
+     * @var string|null
+     * @ORM\Column(type="string")
+     */
+    private string $dure;
 
     /**
      * @var string
@@ -34,21 +54,6 @@ class Experience
      */
     private ?string $description = null;
 
-    /**
-     * @var DateTime
-     * @ORM\Column(type="datetime")
-     * @Assert\NotNull()
-     * @Assert\Date()
-     */
-    private DateTime $startedAt;
-
-    /**
-     * @var DateTime
-     * @ORM\Column(type="datetime")
-     * @Assert\NotNull()
-     * @Assert\Date()
-     */
-    private DateTime $finishedAt;
 
     /**
      * @var Jobseeker|null
@@ -89,35 +94,19 @@ class Experience
     }
 
     /**
-     * @return DateTime
+     * @return string|null
      */
-    public function getStartedAt(): DateTime
+    public function getDure(): ?string
     {
-        return $this->startedAt;
+        return $this->dure;
     }
 
     /**
-     * @param DateTime $startedAt
+     * @param string|null $dure
      */
-    public function setStartedAt(DateTime $startedAt): void
+    public function setDure(?string $dure): void
     {
-        $this->startedAt = $startedAt;
-    }
-
-    /**
-     * @return DateTime
-     */
-    public function getFinishedAt(): DateTime
-    {
-        return $this->finishedAt;
-    }
-
-    /**
-     * @param DateTime $finishedAt
-     */
-    public function setFinishedAt(DateTime $finishedAt): void
-    {
-        $this->finishedAt = $finishedAt;
+        $this->dure = $dure;
     }
 
     /**
@@ -134,6 +123,38 @@ class Experience
     public function setJobSeeker(?Jobseeker $jobSeeker): void
     {
         $this->jobSeeker = $jobSeeker;
+    }
+
+    /**
+     * @param string $compagnieName
+     */
+    public function setCompagnieName(string $compagnieName): void
+    {
+        $this->compagnieName = $compagnieName;
+    }
+
+    /**
+     * @param string $posteOccupe
+     */
+    public function setPosteOccupe(string $posteOccupe): void
+    {
+        $this->posteOccupe = $posteOccupe;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompagnieName(): string
+    {
+        return $this->compagnieName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPosteOccupe(): string
+    {
+        return $this->posteOccupe;
     }
 
 
