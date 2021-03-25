@@ -8,6 +8,7 @@ use App\Repository\User\CompagnieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Compagnie
@@ -22,13 +23,43 @@ class Compagnie extends User
      */
     private Collection $offers;
 
-    public function getRoles():?array
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string")
+     */
+    private string $compagnieName;
+
+    public function getRoles(): ?array
     {
-        return [$this->role];
+        return ['ROLE_COMPAGNIE'];
     }
+
 
     public function __construct()
     {
         $this->offers = new ArrayCollection();
     }
+
+    public function getRole(): string
+    {
+        return 'ROLE_COMPAGNIE';
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getCompagnieName(): string
+    {
+        return $this->compagnieName;
+    }
+
+    /**
+     * @param string $compagnieName
+     */
+    public function setCompagnieName(string $compagnieName): void
+    {
+        $this->compagnieName = $compagnieName;
+    }
+
 }

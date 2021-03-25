@@ -52,7 +52,7 @@ class Jobseeker extends User
 
     public function getRoles():?array
     {
-        return [$this->role];
+        return ["ROLE_JOB_SEEKER"];
     }
 
     /**
@@ -61,5 +61,10 @@ class Jobseeker extends User
     public function getCategory(): Categories
     {
         return $this->category;
+    }
+
+    public function getRole(): string
+    {
+        return "ROLE_JOB_SEEKER";
     }
 }

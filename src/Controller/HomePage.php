@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomePage extends AbstractController
 {
     /**
-     * @Route("/",name="index")
+     * @Route("/",name="app_index")
      * @return Response
      */
     public function index():Response
@@ -38,12 +38,4 @@ class HomePage extends AbstractController
         return $this->render("profile/cv/detailCv.html.twig");
     }
 
-    /**
-     * @Route("/profil/cv/create",name="profil_create_cv")
-     * @return Response
-     */
-    public function create():Response
-    {
-        return $this->render("profile/cv/createCv.html.twig");
-    }
 }

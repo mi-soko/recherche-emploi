@@ -110,3 +110,9 @@ body{
     background-color: #043072 !important;
     color: white !important;
 }
+
+.container-form-error
+{
+    margin-top: -10px;
+    margin-bottom: 10px;
+}

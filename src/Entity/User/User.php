@@ -41,7 +41,6 @@ abstract class User implements UserInterface
     /**
      * @Assert\NotBlank()
      * @Assert\Positive()
-     * @Assert\Regex(pattern="/^0\d{9}$/", message="N° de téléphone invalide.")
      * @ORM\Column(type="string",length=20)
      */
     protected ?string $phoneNumber = null;
@@ -59,7 +58,7 @@ abstract class User implements UserInterface
     protected ?string $password = null;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",nullable=true)
      */
     protected ?string $picture = null;
 
@@ -67,8 +66,12 @@ abstract class User implements UserInterface
      * @Assert\NotBlank()
      * @Assert\Length(min="8",maxMessage="4096",min="Le mot de passe est trop court",maxMessage="Le mot de passe est trop long")
      */
-    protected ?string $plainPassword = null;
+    public ?string $plainPassword = null;
 
+    /**
+     * @var string
+     * @ORM\Column(type="string",nullable=false)
+     */
     protected string $role;
 
     public function getPassword():?string
@@ -172,10 +175,7 @@ abstract class User implements UserInterface
     /**
      * @return string
      */
-    public function getRole(): string
-    {
-        return $this->role;
-    }
+    public abstract function getRole():string ;
 
     /**
      * @param string $role
@@ -185,6 +185,13 @@ abstract class User implements UserInterface
         $this->role = $role;
     }
 
+    /**
+     * @param string|null $password
+     */
+    public function setPassword(?string $password): void
+    {
+        $this->password = $password;
+    }
 
 
 
