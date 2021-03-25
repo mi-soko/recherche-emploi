@@ -2,6 +2,8 @@ const btnExperience = document.querySelectorAll("#btn-experience");
 const selectInput = document.querySelector(".js-select-multiple")
 const textError = document.querySelectorAll('.badge-danger')
 const experienceLevel = document.querySelector('#cv_form_experienceLevels')
+const experienceLevelOffer = document.querySelector('#offer_form_experienceLevels')
+
 /**
  * permet de sélectionner un element
  */
@@ -18,7 +20,14 @@ btnExperience.forEach((i,index) => {
             evt.target.classList.remove('active-btn-experience')
         }
         evt.target.classList.add('active-btn-experience')
-        experienceLevel.value = evt.target.value;
+
+        if (experienceLevel !== null){
+            experienceLevel.value = evt.target.value;
+        }else if(experienceLevelOffer !== null)
+        {
+            experienceLevelOffer.value = evt.target.value;
+        }
+
     })
 })
 

@@ -62,17 +62,44 @@ class Offer
     private DateTime $createdAt;
 
     /**
+     * @ORM\Column(type="smallint")
+     * @var int|null
+     */
+    private ?int $experienceLevels;
+
+    /**
      * @var DateTime
      * @ORM\Column(type="datetime",nullable=true)
      */
     private DateTime $updatedAt;
-
-
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Job\Categories",inversedBy="offer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Job\Categories",inversedBy="offer",fetch="EAGER")
      * @var Categories
      */
     private Categories $categories;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private ?string $title = null;
+
+    /**
+     * @return string
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
 
     public function __construct()
     {
@@ -135,5 +162,79 @@ class Offer
     {
         return $this->categories;
     }
+
+    /**
+     * @param string $jobDescription
+     */
+    public function setJobDescription(string $jobDescription): void
+    {
+        $this->jobDescription = $jobDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJobDescription(): string
+    {
+        return $this->jobDescription;
+    }
+
+    /**
+     * @param Collection $skills
+     */
+    public function setSkills(Collection $skills): void
+    {
+        $this->skills = $skills;
+    }
+
+    /**
+     * @param DateTime $createdAt
+     */
+    public function setCreatedAt(DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @param Collection $jobSeekers
+     */
+    public function setJobSeekers(Collection $jobSeekers): void
+    {
+        $this->jobSeekers = $jobSeekers;
+    }
+
+
+    /**
+     * @return int|null
+     */
+    public function getExperienceLevels(): ?int
+    {
+        return $this->experienceLevels;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param int|null $experienceLevels
+     */
+    public function setExperienceLevels(?int $experienceLevels): void
+    {
+        $this->experienceLevels = $experienceLevels;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
 
 }

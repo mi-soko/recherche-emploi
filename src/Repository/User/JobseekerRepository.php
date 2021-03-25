@@ -21,4 +21,7 @@ class JobseekerRepository extends ServiceEntityRepository
         parent::__construct($registry, Jobseeker::class);
     }
 
+
+
+
 }

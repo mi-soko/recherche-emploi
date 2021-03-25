@@ -9,6 +9,7 @@ use App\Entity\Job\Cv;
 use App\Entity\User\Jobseeker;
 use App\Form\User\JobSeeker\CvFormType;
 use App\Manager\CvManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,11 +27,12 @@ final class CreateProfileController extends AbstractController
      * @param Request $request
      * @param CvManager $manager
      * @return Response
+     * @IsGranted("ROLE_JOB_SEEKER",message="vous n'avez pas le droit")
      */
     public function create(Request $request,CvManager $manager):Response
     {
-        /** @var Jobseeker $user */
 
+        /** @var Jobseeker $user */
         $user = $this->getUser();
         $cv   =  $this->cvFactory($user);
         $form =  $this->createForm(CvFormType::class,$cv);
@@ -45,8 +47,6 @@ final class CreateProfileController extends AbstractController
 
             return $this->redirectToRoute('profil_detail_cv');
         }
-
-
 
         return $this->render("jobSeeker/profile/cv/createCv.html.twig",[
             'form' => $form->createView()

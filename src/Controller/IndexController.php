@@ -10,23 +10,29 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Entity\User\Jobseeker;
+use App\Repository\User\JobseekerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class HomePage
+ * Class IndexController
  * @package App\Controller
  */
-class HomePage extends AbstractController
+class IndexController extends AbstractController
 {
     /**
      * @Route("/",name="app_index")
+     * @param JobseekerRepository $jobseeker
      * @return Response
      */
-    public function index():Response
+    public function JobDescriptionList(JobseekerRepository $jobseeker):Response
     {
-        return $this->render("homePage/index.html.twig");
+        if(!$this->getUser()) return $this->redirectToRoute('app_login');
+        return $this->render("homePage/index.html.twig",[
+            'users' => $jobseeker->findAll()
+        ]);
     }
 
 

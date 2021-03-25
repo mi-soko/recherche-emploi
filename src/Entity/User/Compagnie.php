@@ -62,4 +62,20 @@ class Compagnie extends User
         $this->compagnieName = $compagnieName;
     }
 
+    /**
+     * @return ArrayCollection|Collection
+     */
+    public function getOffers()
+    {
+        return $this->offers;
+    }
+
+    /**
+     * @param ArrayCollection|Collection $offers
+     */
+    public function setOffers($offers): void
+    {
+        $this->offers = $offers;
+    }
+
 }

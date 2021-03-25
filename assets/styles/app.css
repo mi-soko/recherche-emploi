@@ -39,7 +39,6 @@ body{
 
 .container-detail-profile
 {
-    background-color: #000000;
     height: 50vh;
 }
 .detail-profil-image
@@ -115,4 +114,17 @@ body{
 {
     margin-top: -10px;
     margin-bottom: 10px;
+}
+.description > p
+{
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
+
+.card-container
+{
+    grid-template-columns: 20px 50px 100px;
+    grid-template-rows: 80px auto 80px;
+    column-gap: 10px;
+    row-gap: 15px;
 }

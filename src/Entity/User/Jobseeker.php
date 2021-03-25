@@ -55,12 +55,12 @@ class Jobseeker extends User
      * @ORM\Column(type="string")
      * @var string
      */
-    private string $address;
+    private ?string $address = null;
 
     /**
      * @ORM\Column(type="smallint")
      */
-    private int $experienceLevels;
+    private ?int $experienceLevels = null;
 
     public function __construct()
     {
@@ -131,7 +131,7 @@ class Jobseeker extends User
     /**
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
@@ -149,7 +149,7 @@ class Jobseeker extends User
     /**
      * @return ArrayCollection|Collection
      */
-    public function getExperience()
+    public function getExperience():?Collection
     {
         return $this->experience;
     }
@@ -173,7 +173,7 @@ class Jobseeker extends User
     /**
      * @return int
      */
-    public function getExperienceLevels(): int
+    public function getExperienceLevels(): ?int
     {
         return $this->experienceLevels;
     }

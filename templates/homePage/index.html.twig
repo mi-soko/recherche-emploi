@@ -2,25 +2,26 @@
 
 {% block body %}
 
-    <section class="container-fluid" >
-        <div class="card-group container">
-            <div class="row row-cols-1 row-cols-md-3 flex-grow-4 flex-wrap">
-                {% for i in range(1,20) %}
-                    <div class="col mb-5">
-                        <div class="card shadow"  style="width: 18rem;height: 100%"  >
-                            <img src="https://via.placeholder.com/300" class="card-img-top" height="300px" width="200px" alt="...">
-                            <p class="card-user-name" >Soko Mamadou ibrahima</p>
+    <section class="">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-md-start justify-content-lg-start justify-content-sm-start">
+                {% for user in users %}
+                    <a href="{{ path("app_show_cv",{id:user.id}) }}" class="mb-5 p-2 text-decoration-none">
+                        <div class="card shadow" style="width: 18rem;height: 100%">
+                            <img src="https://images.prismic.io/cadremploi-edito/2c42db4e-15ac-49a4-8d50-e4113a8adbb5_Bonne-photo-cv-femme1.JPG?auto=compress,format"
+                                 class="card-img-top" height="300px" width="200px" alt="...">
+                            <p class="card-user-name">{{ user.fullName }}</p>
                             <div class="card-body">
-                                <h5 class="card-title pt-3">Développeur Web Fullstack Php Symfony</h5>
+                                <h5 class="card-title pt-3">{{ user.profileTitle }}</h5>
                                 <p class="card-text pb-4 pt-2 ">
-                                    <span class="badge bg-blue-lite text-color-blue-lite" >PHP</span>
-                                    <span class="badge bg-blue-lite text-color-blue-lite" >JAVA</span>
-                                    <span class="badge bg-blue-lite text-color-blue-lite" >C#</span>
-                                    <span class="badge bg-blue-lite text-color-blue-lite" >ANDROID</span>
+                                    {% for skill in user.skills %}
+                                        <span class="badge bg-blue-lite text-color-blue-lite">{{ skill.name }}</span>
+                                    {% endfor %}
+
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
         </div>

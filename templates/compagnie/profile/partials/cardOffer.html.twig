@@ -4,29 +4,28 @@
                 <h4 class="competence-title">Experience</h4>
                 <div class="" ></div>
                 {% if app.user.id == user.id %}
-                    <a href="{{ path('app_jobseeker_create_experience') }}" class="btn text-white detail-profil-btn bg-rose-dark">
-                        Ajouter une experience
+                    <a href="{{ path('app_compagnie_offer_create') }}" class="btn text-white detail-profil-btn bg-rose-dark">
+                        Ajouter une offre
                     </a>
                 {% endif %}
             </div>
-            {% for experience in user.experience %}
+            {% for offer in user.offers %}
                 <div class="justify-content-between d-flex align-items-center  mb-5  flex-row" >
                     <h3 class="detail-profil-experience-title" >
                         <i class="far fa-building fs-1"></i>
-                        {{ experience.compagnieName  | capitalize }}
+                        {{ offer.title  | capitalize }}
                     </h3>
                       {% if app.user.id == user.id %}
                           <div class="fw-bold w-auto" >
-                              <a href="{{ path('app_jobseeker_update_experience',{id:experience.id}) }}" class="p-2" > <i class="fa fa-edit" ></i> Editer</a>
-                              <a href="{{ path('app_jobseeker_delete_experience',{id:experience.id}) }}" class="ml-2 text-danger" > <i class="fas fa-trash" ></i> Supprimer</a>
+                              <a href="{{ path('app_compagnie_offer_update',{id:offer.id}) }}" class="p-2" > <i class="fa fa-edit" ></i> Editer</a>
+                              <a href="{{ path('app_compagnie_offer_delete',{id:offer.id}) }}" class="ml-2 text-danger" > <i class="fas fa-trash" ></i> Supprimer</a>
                           </div>
                         {% endif %}
                 </div>
                 <div class="card-body ml-3">
-                    <h6 class="detail-profil-experience-subtitle" >{{ experience.posteOccupe | capitalize }} </h6>
-                    <h6 class="detail-profil-experience-subtitle" >{{ experience.dure        | capitalize }}</h6>
+                    <h6 class="detail-profil-experience-subtitle" >{{ offer.createdAt | date }} </h6>
                     <p class="text-justify fw-bold fs-4 description " >
-                       {{ experience.description | raw }}
+                       {{ offer.jobDescription | raw }}
                     </p>
                     <div class="dropdown-divider mt-5 mb-5" ></div>
                 </div>
