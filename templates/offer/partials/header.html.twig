@@ -45,11 +45,45 @@
             <div class="container" >
 
                 {% if app.user.role == "ROLE_JOB_SEEKER" %}
-                    <button data-id="{{ offer.id }}" data-turbolinks="false" id="postJob" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
+                    <a data-id="{{ offer.id }}" data-turbolinks="false" id="postJob" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
                         {% if app.user.offer.contains(offer) %} Annuler {% else %}  Postuler {% endif %}
-                    </button>
+                    </a>
                 {% endif %}
             </div>
         </div>
     </div>
 </header>
+
+{% block javascripts %}
+    <script type="text/javascript" >
+
+        const posteJob = document.getElementById('postJob');
+
+
+        posteJob.addEventListener('click',(e) => {
+
+            e.preventDefault()
+            posteJob.classList.add("disabled")
+            fetch("https://localhost:8000/offer/subscribe/"+posteJob.dataset.id)
+                .then((response) => {
+                    response.json().then((res) => {
+
+                        if(!res.contain && res.isSuccess){
+                            posteJob.textContent = "Annuler"
+                        }
+                        if(res.isSuccess && res.contain){
+                            posteJob.textContent = "Postuler"
+                        }
+                        posteJob.classList.remove("disabled")
+
+                    })
+                })
+                .catch((err) => {
+                    window.alert("Erreur pour" + posteJob.textContent + err)
+                })
+
+        })
+
+
+    </script>
+{% endblock %}
