@@ -6,6 +6,13 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+
+import 'select2/dist/css/select2.min.css'
+import 'select2/dist/js/select2.min'
+
+const $ = require('jquery');
+global.$ = global.jQuery = $;
+
 import './styles/app.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -14,8 +21,7 @@ import './js/api'
 import  '@fortawesome/fontawesome-free/js/all.min';
 import  '@fortawesome/fontawesome-free/css/all.min.css';
 
-const $ = require('jquery');
-global.$ = global.jQuery = $;
+
 // start the Stimulus application
 import './bootstrap';
 

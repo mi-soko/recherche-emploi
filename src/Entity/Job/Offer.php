@@ -44,7 +44,7 @@ class Offer
     private ?Collection $jobSeekers;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User\Compagnie",inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\Compagnie",inversedBy="offers",fetch="EAGER")
      */
     private ?Compagnie $compagnie = null;
 

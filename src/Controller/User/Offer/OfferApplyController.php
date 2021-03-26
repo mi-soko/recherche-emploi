@@ -23,8 +23,9 @@ class OfferApplyController extends AbstractController
     {
         if (!$offer){
             return $this->json([
-                'isSuccess' => false
-            ]);
+                'isSuccess' => false,
+                'contain'   => false
+            ],Response::HTTP_NOT_FOUND);
         }
         $contain = $offer->getJobSeekers()->contains($this->getUser());
           $contain ?

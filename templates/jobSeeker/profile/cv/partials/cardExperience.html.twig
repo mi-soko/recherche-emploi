@@ -4,7 +4,7 @@
                 <h4 class="competence-title">Experience</h4>
                 <div class="" ></div>
                 {% if app.user.id == user.id %}
-                    <a href="{{ path('app_jobseeker_create_experience') }}" class="btn text-white detail-profil-btn bg-rose-dark">
+                    <a href="{{ path('app_jobseeker_create_experience') }}" data-turbolinks="false" class="btn text-white detail-profil-btn bg-rose-dark">
                         Ajouter une experience
                     </a>
                 {% endif %}
