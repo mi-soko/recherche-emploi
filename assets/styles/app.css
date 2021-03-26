@@ -128,3 +128,17 @@ body{
     column-gap: 10px;
     row-gap: 15px;
 }
+
+.notification-custom
+{
+    position: absolute ;
+    background-color:red !important;
+    padding:4px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 100%;
+    color: white;
+    margin-left: -22px;
+    margin-top: -8px;
+}

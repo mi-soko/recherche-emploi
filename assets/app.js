@@ -10,6 +10,7 @@ import './styles/app.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './js/btn-selected'
+import './js/api'
 import  '@fortawesome/fontawesome-free/js/all.min';
 import  '@fortawesome/fontawesome-free/css/all.min.css';
 

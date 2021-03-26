@@ -7,20 +7,20 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h1 class="detail-profil-title">{{ user.fullName | capitalize }}</h1>
-            <h4 class="detail-profil-sub-title">{{ user.profileTitle | capitalize }}</h4>
-            <h6 class="title">Adresse <span class="fw-bold" >{{ user.address | capitalize }}</span></h6>
-            <h6 class="title">Catégorie <span class="fw-bold" >{{ user.category.name }}</span></h6>
+            <h1 class="detail-profil-title">{{ offer.compagnie.compagnieName | capitalize }}</h1>
+            <h4 class="detail-profil-sub-title">{{ offer.title | capitalize }}</h4>
+            <h6 class="title">Catégorie <span class="fw-bold" >{{ offer.categories.name | capitalize }}</span></h6>
+            <h6 class="title">Catégorie <span class="fw-bold" >{{ offer.createdAt | date }}</span></h6>
             <div class="card-group" >
                 <div class="card" >
                     <div class="card-body p-0 bg-blue-dark" >
                         <p class="m-2 detail-profil-card-text text-white" >Expérience</p>
                         <p class="m-2 detail-profil-card-text fw-bold text-white " >
-                            {% if user.experienceLevels == 1 %}
+                            {% if offer.experienceLevels == 1 %}
                                 0-2 ans
-                            {% elseif  user.experienceLevels == 2 %}
+                            {% elseif  offer.experienceLevels == 2 %}
                                 2-7 ans
-                            {% elseif  user.experienceLevels == 3 %}
+                            {% elseif  offer.experienceLevels == 3 %}
                                 7ans et +
                             {% endif %}
 
@@ -29,8 +29,8 @@
                 </div>
                 <div class="card" >
                     <div class="card-body p-0  " >
-                        <p class="m-2 detail-profil-card-text fw-bold " >Nombre de project</p>
-                        <p class="m-2 detail-profil-card-text fw-bold " >{{ user.experience.count }}</p>
+                        <p class="m-2 detail-profil-card-text fw-bold " >Nombre de competence</p>
+                        <p class="m-2 detail-profil-card-text fw-bold " >{{ offer.skills.count }}</p>
                     </div>
                 </div>
                 <div class="card" >
@@ -44,16 +44,10 @@
         <div class="col-md-3">
             <div class="container" >
 
-                {% if user.id == app.user.id %}
-                    <a href="{{ path('profil_create_cv') }}" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
-                        {% if  user.profileTitle is not null %} Modifier {% else %} Creer {% endif %}cv profil
-                    </a>
-                {% endif %}
-
-                {% if app.user.role == "ROLE_COMPAGNIE" %}
-                    <a href="{{ path('profil_create_cv') }}" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
-                        Proposer un job
-                    </a>
+                {% if app.user.role == "ROLE_JOB_SEEKER" %}
+                    <button data-id="{{ offer.id }}" id="postJob" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
+                        {% if app.user.offer.contains(offer) %} Annuler {% else %}  Postuler {% endif %}
+                    </button>
                 {% endif %}
             </div>
         </div>

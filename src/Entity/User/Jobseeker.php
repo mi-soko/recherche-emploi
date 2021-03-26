@@ -178,4 +178,15 @@ class Jobseeker extends User
         return $this->experienceLevels;
     }
 
+    /**
+     * @return ArrayCollection|Collection
+     */
+    public function getOffer()
+    {
+        return $this->offer;
+    }
+
+
+
+
 }

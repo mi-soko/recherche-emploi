@@ -236,5 +236,12 @@ class Offer
         $this->id = $id;
     }
 
+    /**
+     * @return Collection
+     */
+    public function getJobSeekers(): Collection
+    {
+        return $this->jobSeekers;
+    }
 
 }
