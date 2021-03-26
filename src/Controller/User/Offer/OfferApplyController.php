@@ -19,13 +19,10 @@ class OfferApplyController extends AbstractController
      * @param Offer $offer
      * @return JsonResponse
      */
-    public function __invoke(Offer $offer):JsonResponse
+    public function __invoke(Offer $offer):Response
     {
         if (!$offer){
-            return $this->json([
-                'isSuccess' => false,
-                'contain'   => false
-            ],Response::HTTP_NOT_FOUND);
+            return $this->createNotFoundException("Objet non trouve");
         }
         $contain = $offer->getJobSeekers()->contains($this->getUser());
           $contain ?
@@ -34,9 +31,8 @@ class OfferApplyController extends AbstractController
 
         $this->getDoctrine()->getManager()->flush();
 
-       return $this->json([
-            'isSuccess' => true,
-            'contain' => $contain
+        return $this->redirectToRoute("app_offer_show",[
+            'id' => $offer->getId()
         ]);
 
     }

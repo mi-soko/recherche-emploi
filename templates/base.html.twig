@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Job{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="turbolinks-root" content="/" >
+
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -20,7 +20,7 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
 
-            <script src="{{ asset('/js/turboLink.js') }}" data-turbolinks-track="reload" data-turbolinks-eval="false"  ></script>
+            <script src="{{ asset('/js/turboLink.js') }}" ></script>
         {% endblock %}
     </head>
     <body>
