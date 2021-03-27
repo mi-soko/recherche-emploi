@@ -24,7 +24,7 @@ class CvController extends AbstractController
     }
 
     /**
-     * @Route("/profile/cv/{id<\d>}",name="app_show_cv")
+     * @Route("/profile/cv/{id}",name="app_show_cv")
      * @param Jobseeker $jobseeker
      * @return Response
      */

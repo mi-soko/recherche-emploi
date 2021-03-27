@@ -243,5 +243,4 @@ class Offer
     {
         return $this->jobSeekers;
     }
-
 }

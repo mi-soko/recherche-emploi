@@ -79,6 +79,21 @@ class AppFixtures extends Fixture
         $programmation_language_arrayLength = count($programmation_language);
 
 
+        $categoriesData = [
+            'Bachelor Informatique et Réseaux',
+            "Diplôme école d'ingénieur informatique",
+            "Développeur multimédia",
+            "Programmeur",
+        ];
+
+
+        for ($i = 1 ; $i <= 4; $i++)
+        {
+            $categories = new Categories();
+            $categories->setName($categoriesData[$i - 1]);
+            $manager->persist($categories);
+            $this->addReference('categories-'.$i,$categories);
+        }
 
         for ($i = 1 ; $i <= $programmation_language_arrayLength ; $i++)
         {
@@ -97,15 +112,16 @@ class AppFixtures extends Fixture
         $jobSeeker->setFullName("Mamadou ibrahima Soko");
         $jobSeeker->setProfileTitle($dataTech[0]);
         $jobSeeker->setRole($jobSeeker->getRole());
-
-        for ($i = 0 ; $i < 3 ; $i++)
+        $jobSeeker->setCategory($this->getReference('categories-'.mt_rand(1,4)));
+        for ($i = 0 ; $i <= 3 ; $i++)
         {
             $experience = new Experience();
             $experience->setCompagnieName($faker->company);
             $experience->setDescription($this->getJobDescriptions());
             $experience->setDure($this->getDate());
             $experience->setPosteOccupe($dataPosteOccupe[mt_rand(0,4)]);
-            $jobSeeker->getExperience()->add($experience);
+            $experience->setJobSeeker($jobSeeker);
+            $manager->persist($experience);
         }
 
         $jobSeeker->setEmail("soko@gmail.com");
@@ -133,7 +149,7 @@ class AppFixtures extends Fixture
             $jobSeeker->setProfileTitle($dataTech[mt_rand(0,4)]);
             $jobSeeker->setRole($jobSeeker->getRole());
             $jobSeeker->setEmail($faker->email);
-
+            $jobSeeker->setCategory($this->getReference('categories-'.mt_rand(1,4)));
             for ($j = 1 ; $j <= mt_rand(5,14) ; $j++){
                 $skills = $this->getReference('skill-'.mt_rand(1,$programmation_language_arrayLength));
                 $jobSeeker->getSkills()->contains($skills) ?:$jobSeeker->getSkills()->add($skills);
@@ -146,36 +162,17 @@ class AppFixtures extends Fixture
                 $experience->setDescription($this->getJobDescriptions());
                 $experience->setDure($this->getDate());
                 $experience->setPosteOccupe($dataPosteOccupe[mt_rand(0,4)]);
-                $jobSeeker->getExperience()->add($experience);
+                $experience->setJobSeeker($jobSeeker);
+                $manager->persist($experience);
             }
 
             $manager->persist($jobSeeker);
             $this->addReference("user-".$i,$jobSeeker);
         }
 
-        $categoriesData = [
-            'Bachelor Informatique et Réseaux',
-            "Diplôme école d'ingénieur informatique",
-            "Développeur multimédia",
-            "Programmeur",
-        ];
 
 
 
-        for ($i = 1 ; $i <= 4; $i++)
-        {
-            $user = $this->getReference('user-'.mt_rand(0,30));
-            $categories = new Categories();
-            $categories->setName($categoriesData[$i - 1]);
-
-            if(!$categories->getJobSeeker()->contains($user))
-            {
-                $categories->getJobSeeker()->add($user);
-            }
-
-            $manager->persist($categories);
-            $this->addReference('categories-'.$i,$user);
-        }
 
         for ($i = 1 ; $i <= 10; $i++)
         {
@@ -199,6 +196,7 @@ class AppFixtures extends Fixture
             $offer->setExperienceLevels(mt_rand(1,3));
             $offer->setCompagnie($compagnie);
             $offer->setJobDescription($this->getJobDescriptions());
+            $offer->setTitle($dataPosteOccupe[mt_rand(0,4)]);
             for ($j = 1 ; $j <= $programmation_language_arrayLength ; $j++)
             {
                 $skills = $this->getReference('skill-'.mt_rand(1,$programmation_language_arrayLength));
@@ -207,6 +205,8 @@ class AppFixtures extends Fixture
                     $offer->getSkills()->add($skills);
                 }
             }
+
+            $offer->setCategories($this->getReference('categories-'.mt_rand(1,4)));
             $manager->persist($offer);
 
         }
@@ -234,14 +234,14 @@ TEXT;
 
     private function getDate():string
     {
-        $dateDebut =  $dateFin =  (new \DateTime(
+        $dateFin =  $dateFin =  (new \DateTime(
             sprintf("%d-%d-%d",mt_rand(2015,2021),mt_rand(1,5),mt_rand(1,27))))
             ->format("F-Y");
-        $dateFin =  (new \DateTime(
+        $dateDebut =  (new \DateTime(
             sprintf("%d-%d-%d",mt_rand(2005,2015),mt_rand(1,12),mt_rand(1,27))))
             ->format("F-Y");
 
-        return "". $dateDebut ." à ". $dateFin;
+        return "".$dateDebut ." à ". $dateFin;
     }
 
 }

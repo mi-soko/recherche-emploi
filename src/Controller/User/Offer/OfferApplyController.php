@@ -15,7 +15,7 @@ class OfferApplyController extends AbstractController
 {
 
     /**
-     * @Route("/offer/subscribe/{id<\d>}",name="app_offer_subscribe")
+     * @Route("/offer/subscribe/{id}",name="app_offer_subscribe")
      * @param Offer $offer
      * @return JsonResponse
      */

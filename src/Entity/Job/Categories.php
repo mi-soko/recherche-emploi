@@ -35,7 +35,7 @@ class Categories
     private ?Collection $offer = null;
 
     /**
-     * @ORM\OneToMany(mappedBy="category",targetEntity="App\Entity\User\Jobseeker")
+     * @ORM\OneToMany(mappedBy="category",targetEntity="App\Entity\User\Jobseeker",cascade={"persist"})
      * @var Collection|null
      */
     private ?Collection $jobSeeker = null;

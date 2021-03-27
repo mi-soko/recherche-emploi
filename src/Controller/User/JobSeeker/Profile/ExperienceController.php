@@ -53,7 +53,7 @@ final class ExperienceController extends AbstractController
 
 
     /**
-     * @Route("/profile/cv/experience/{id<\d>}/delete",name="app_jobseeker_delete_experience")
+     * @Route("/profile/cv/experience/{id}/delete",name="app_jobseeker_delete_experience")
      * @param Experience $experience
      * @param EntityManagerInterface $manager
      * @return Response
@@ -71,7 +71,7 @@ final class ExperienceController extends AbstractController
     }
 
     /**
-     * @Route("/profile/cv/experience/{id<\d>}/update",name="app_jobseeker_update_experience")
+     * @Route("/profile/cv/experience/{id}/update",name="app_jobseeker_update_experience")
      * @param Experience $experience
      * @param EntityManagerInterface $manager
      * @param Request $request

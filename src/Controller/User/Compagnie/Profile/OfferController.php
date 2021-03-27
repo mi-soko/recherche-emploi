@@ -65,7 +65,7 @@ class OfferController extends AbstractController
     }
 
     /**
-     * @Route("profile/compagnie/offer/{id<\d>}/update",name="app_compagnie_offer_update")
+     * @Route("profile/compagnie/offer/{id}/update",name="app_compagnie_offer_update")
      * * @IsGranted("ROLE_COMPAGNIE")
      * @param Offer $offer
      * @param Request $request
@@ -97,7 +97,7 @@ class OfferController extends AbstractController
     }
 
     /**
-     * @Route("profile/compagnie/offer/{id<\d>}/delete",name="app_compagnie_offer_delete")
+     * @Route("profile/compagnie/offer/{id}/delete",name="app_compagnie_offer_delete")
      * * @IsGranted("ROLE_COMPAGNIE")
      * @param Offer $offer
      * @param Request $request
@@ -116,7 +116,7 @@ class OfferController extends AbstractController
     }
 
     /**
-     * @Route("/offer/{id<\d>}",name="app_offer_show")
+     * @Route("/offer/{id}",name="app_offer_show")
      * @param Offer $offer
      * @return Response
      */
