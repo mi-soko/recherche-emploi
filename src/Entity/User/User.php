@@ -193,6 +193,22 @@ abstract class User implements UserInterface
         $this->password = $password;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string|null $picture
+     */
+    public function setPicture(?string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
 
 
 }

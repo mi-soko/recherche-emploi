@@ -40,7 +40,7 @@ class Jobseeker extends User
 
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Job\Experience",mappedBy="jobSeeker")
+     * @ORM\OneToMany(targetEntity="App\Entity\Job\Experience",mappedBy="jobSeeker",cascade={"persist"})
      */
     private Collection $experience;
 

@@ -95,4 +95,21 @@ class Categories
     {
         $this->name = $name;
     }
+
+    /**
+     * @param Collection|null $jobSeeker
+     */
+    public function setJobSeeker(?Collection $jobSeeker): void
+    {
+        $this->jobSeeker = $jobSeeker;
+    }
+
+
+    /**
+     * @param Collection|null $offer
+     */
+    public function setOffer(?Collection $offer): void
+    {
+        $this->offer = $offer;
+    }
 }
