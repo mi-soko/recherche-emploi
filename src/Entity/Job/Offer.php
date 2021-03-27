@@ -37,6 +37,12 @@ class Offer
     private ?Collection $skills;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Job\Notification",mappedBy="offer")
+     * @var Collection
+     */
+    private ?Collection $notification = null;
+
+    /**
      * @var Collection
      * @ORM\ManyToMany(targetEntity="App\Entity\User\Jobseeker",inversedBy="offer")
      * @ORM\JoinTable(name="jobseeker_offer")
@@ -109,6 +115,7 @@ class Offer
 
     public function __construct()
     {
+        $this->notification = new ArrayCollection();
         $this->skills = new ArrayCollection();
         $this->createdAt = new DateTime();
         $this->jobSeekers = new ArrayCollection();

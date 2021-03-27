@@ -25,7 +25,16 @@
     </head>
     <body>
         {% include 'partials/header.html.twig' %}
-        <div style="margin-top: 60px"></div>
+
+        <div style="margin-top: 63px"></div>
+
+        {% for label, messages in app.flashes(['success', 'warning']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{label}} p-2 position-absolute " style="right: 0" >
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
         {% block body %}{% endblock %}
     </body>
 

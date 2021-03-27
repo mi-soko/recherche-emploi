@@ -62,8 +62,15 @@ class Jobseeker extends User
      */
     private ?int $experienceLevels = null;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Job\Notification",mappedBy="jobSeeker",fetch="EAGER")
+     * @var Collection
+     */
+    private ?Collection $notifications = null;
+
     public function __construct()
     {
+        $this->notifications = new ArrayCollection();
         $this->skills = new ArrayCollection();
         $this->offer = new ArrayCollection();
         $this->experience = new ArrayCollection();
@@ -185,6 +192,16 @@ class Jobseeker extends User
     {
         return $this->offer;
     }
+
+
+    /**
+     * @return Collection
+     */
+    public function getNotifications(): Collection
+    {
+        return $this->notifications;
+    }
+
 
 
 

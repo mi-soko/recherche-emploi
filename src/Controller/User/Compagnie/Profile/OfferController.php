@@ -5,14 +5,16 @@ declare(strict_types=1);
 
 namespace App\Controller\User\Compagnie\Profile;
 
-
 use App\Entity\Job\Offer;
 use App\Entity\User\Compagnie;
+use App\Event\CreateOfferEvent;
 use App\Form\User\Compagnie\OfferFormType;
-use App\Form\User\JobSeeker\ExperienceFormType;
+use App\Manager\OfferManager;
 use App\Repository\OfferRepository;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,9 +39,11 @@ class OfferController extends AbstractController
      * @Route("profile/compagnie/offer/create",name="app_compagnie_offer_create")
      * * @IsGranted("ROLE_COMPAGNIE")
      * @param Request $request
+     * @param EventDispatcherInterface $dispatcher
+     * @param OfferManager $offerManager
      * @return Response
      */
-    public function create(Request $request):Response
+    public function create(Request $request,EventDispatcherInterface $dispatcher,OfferManager $offerManager):Response
     {
         $form =  $this->createForm(OfferFormType::class);
 
@@ -47,14 +51,11 @@ class OfferController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            /** @var Offer $offer */
-            $offer = $form->getData();
-            /** @var Compagnie $user */
-            $user =  $this->getUser();
-            $offer->setCompagnie($user);
-            $offer->setExperienceLevels( (int) $request->request->get('offer_form')['experienceLevels']);
-            $this->getDoctrine()->getManager()->persist($offer);
-            $this->getDoctrine()->getManager()->flush();
+
+            $offer = $offerManager->create($form->getData());
+
+            /** Dispatcher l'evenement pour notifier les job seekers */
+            $dispatcher->dispatch(new CreateOfferEvent($offer));
 
             return $this->redirectToRoute('app_compagnie_index');
         }

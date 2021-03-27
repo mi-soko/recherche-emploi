@@ -1,12 +1,13 @@
 <?php
 
 
-namespace App\Controller\User\Offer;
+namespace App\Controller\Offer;
 
 
 use App\Entity\Job\Offer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +18,7 @@ class OfferApplyController extends AbstractController
     /**
      * @Route("/offer/subscribe/{id}",name="app_offer_subscribe")
      * @param Offer $offer
-     * @return JsonResponse
+     * @return RedirectResponse|NotFoundHttpException
      */
     public function __invoke(Offer $offer):Response
     {

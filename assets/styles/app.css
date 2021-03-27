@@ -5,7 +5,12 @@ body{
 {
     /*font-family: Agrandir Tight,Arial,Helvetica,sans-serif;*/
     font-family: Moderat,Arial,Helvetica,sans-serif;
-    background-color: #bac0f7; ;
+    background-color: #bac0f7;
+}
+
+.bg-blue-lite:hover
+{
+    background-color: #8087f5;
 }
 
 .text-color-blue-lite,.text-color-blue-lite :hover
@@ -22,9 +27,18 @@ body{
 {
     background-color: #014554;
 }
+.bg-blue-dark:hover
+{
+    background-color: #026f85;
+}
 .bg-rose-dark
 {
     background-color: #fa7070;
+}
+.bg-rose-dark:hover
+{
+    transition: 0.5s;
+    background-color: #fc8b8b;
 }
 
 .card-user-name
@@ -135,7 +149,7 @@ body{
 .notification-custom
 {
     position: absolute ;
-    background-color:red !important;
+
     padding:4px;
     height: 30px;
     width: 30px;
@@ -144,4 +158,8 @@ body{
     color: white;
     margin-left: -22px;
     margin-top: -8px;
+}
+.date-notification
+{
+    font-size: 12px;
 }
