@@ -3,19 +3,24 @@
 {% block body %}
 
     <section class="row container-fluid">
-        <div class="col-md-3" >
+        <div class="col-md-3 mt-2" >
             <div class="card shadow position-fixed bg-blue-dark h-100" style="width: 300px"></div>
         </div>
-        <div class="col-md-9 w-auto">
+        <div class="col-md-9">
+            <div class="mt-2 mb-3 p-4">
+
+                <h1 class="detail-profil-title" >Plus de {{ offers | length }} offres disponibles</h1>
+            </div>
             <div class="d-flex flex-wrap justify-content-md-start justify-content-lg-start justify-content-sm-start">
                 {% for offer in offers %}
                     <a  href="{{ path("app_offer_show",{id:offer.id}) }}"  class="mb-5 p-2 text-decoration-none">
                         <div class="card shadow" style="width: 18rem;height: 100%">
-                            <img src="https://images.prismic.io/cadremploi-edito/2c42db4e-15ac-49a4-8d50-e4113a8adbb5_Bonne-photo-cv-femme1.JPG?auto=compress,format"
+
+                            <img src="{{ offer.picture }}"
                                  class="card-img-top" height="250px" width="250px" alt="...">
                             <p class="card-user-name">{{ offer.compagnie.compagnieName }}</p>
                             <div class="card-body">
-                                <h5 class="card-title pt-3">{{ offer.title }}</h5>
+                                <h5 class="card-title pt-3 text-dark fw-bold " style="opacity: 0.9" >{{ offer.title }}</h5>
                                 <p class="card-text pb-4 pt-2 ">
                                     {% for skill in offer.skills %}
                                         <span class="badge bg-blue-lite text-color-blue-lite">{{ skill.name }}</span>

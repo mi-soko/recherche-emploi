@@ -79,6 +79,12 @@ class Offer
     private Categories $categories;
 
     /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private ?string $picture = null;
+
+    /**
      * @var string
      * @ORM\Column(type="string",nullable=true)
      */
@@ -242,5 +248,27 @@ class Offer
     public function getJobSeekers(): Collection
     {
         return $this->jobSeekers;
+    }
+
+
+    /**
+     * @param string $picture
+     */
+    public function setPicture(string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPicture(): string
+    {
+
+        if (null == $this->picture)
+        {
+            return "https://image.freepik.com/free-vector/best-offer-banner_1176-260.jpg";
+        }
+        return $this->picture;
     }
 }

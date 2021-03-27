@@ -198,6 +198,10 @@ abstract class User implements UserInterface
      */
     public function getPicture(): ?string
     {
+        if ($this->picture == null)
+        {
+            return "https://meetanentrepreneur.lu/wp-content/uploads/2019/08/profil-linkedin-300x300.jpg";
+        }
         return $this->picture;
     }
 
