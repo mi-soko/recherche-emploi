@@ -51,12 +51,11 @@ class OfferController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
-
             $offer = $offerManager->create($form->getData());
 
             /** Dispatcher l'evenement pour notifier les job seekers */
             $dispatcher->dispatch(new CreateOfferEvent($offer));
-
+            $this->addFlash('success',"Votre offre a bien été créer");
             return $this->redirectToRoute('app_compagnie_index');
         }
 
@@ -88,7 +87,7 @@ class OfferController extends AbstractController
             $offer->setExperienceLevels( (int) $request->request->get('offer_form')['experienceLevels']);
 
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('info',"Votre offre a bien été modifier");
             return $this->redirectToRoute('app_compagnie_index');
         }
 
@@ -112,7 +111,7 @@ class OfferController extends AbstractController
 
         $this->getDoctrine()->getManager()->remove($offer);
         $this->getDoctrine()->getManager()->flush();
-
+        $this->addFlash('danger',"Votre offre a bien été supprimer");
         return $this->redirectToRoute('app_compagnie_index');
     }
 

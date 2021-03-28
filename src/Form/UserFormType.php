@@ -41,20 +41,27 @@ class UserFormType extends AbstractType
         $builder
             ->add('fullName',TextType::class,[
                 'required'   => false,
+                'attr' => [
+                    'placeholder' => 'Ex: Mamadou Ibrahima Soko'
+                ]
             ])
             ->add('phoneNumber',NumberType::class,[
                 'attr' => [
                     'required'   => false,
+                    'placeholder' => '772199737'
                 ]
             ])
             ->add('email',TextType::class,[
                 'attr' => [
                     'required'   => false,
+                    'placeholder' => 'Ex: soko@gmail.com'
                 ]
             ])
             ->add('plainPassword',PasswordType::class,[
+
                 'attr' => [
                     'required'   => false,
+                    'placeholder' => '*********'
                 ]
             ]);
 

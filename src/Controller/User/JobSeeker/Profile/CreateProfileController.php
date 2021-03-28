@@ -44,7 +44,7 @@ final class CreateProfileController extends AbstractController
             $cv = $form->getData();
             $cv->setExperienceLevels($request->request->get('cv_form')['experienceLevels']);
             $manager->create($cv);
-
+            $this->addFlash('success',"Votre cv a bien été complété");
             return $this->redirectToRoute('profil_detail_cv');
         }
 
@@ -61,7 +61,6 @@ final class CreateProfileController extends AbstractController
         $cv->setAddress($user->getAddress());
         $cv->setCategories($user->getCategory());
         $cv->setProfileTitle($user->getProfileTitle());
-        $cv->setPhoneNumber($user->getPhoneNumber());
         $cv->setSkills($user->getSkills());
 
         return $cv;

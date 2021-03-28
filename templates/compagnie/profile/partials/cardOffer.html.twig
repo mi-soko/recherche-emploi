@@ -10,7 +10,7 @@
                 {% endif %}
             </div>
             {% for offer in user.offers %}
-                <div class="justify-content-between d-flex align-items-center  mb-5  flex-row" >
+                <div class="justify-content-between d-flex align-items-center  mb-2  flex-row" >
                     <h3 class="detail-profil-experience-title" >
                         <i class="far fa-building fs-1"></i>
                         {{ offer.title  | capitalize }}
@@ -22,8 +22,9 @@
                           </div>
                         {% endif %}
                 </div>
-                <div class="card-body ml-3">
-                    <h6 class="detail-profil-experience-subtitle" >{{ offer.createdAt | date }} </h6>
+                <div class="card-body ml-1">
+                    <h6 class="detail-profil-experience-subtitle" > Catégorie : {{ offer.categories.name }} </h6>
+                    <h6 class="detail-profil-experience-subtitle" > Date de publication : {{ offer.createdAt | date }} </h6>
                     <p class="text-justify fw-bold fs-4 description " >
                        {{ offer.jobDescription | raw }}
                     </p>

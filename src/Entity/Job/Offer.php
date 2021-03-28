@@ -37,7 +37,7 @@ class Offer
     private ?Collection $skills;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Job\Notification",mappedBy="offer")
+     * @ORM\OneToMany(targetEntity="App\Entity\Job\Notification",mappedBy="offer",cascade={"remove"})
      * @var Collection
      */
     private ?Collection $notification = null;

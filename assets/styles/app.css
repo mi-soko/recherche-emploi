@@ -161,5 +161,10 @@ body{
 }
 .date-notification
 {
-    font-size: 12px;
+    font-size: 12px !important;
+}
+.notification-hover-item:hover
+{
+    background-color: #b0cbff !important;
+    transition: background-color .2s;
 }

@@ -15,7 +15,7 @@ class Cv
      * @Assert\NotNull()
      * @var Categories
      */
-    private Categories $categories;
+    private ?Categories $categories = null;
 
     /**
      * @Assert\NotNull()
@@ -28,26 +28,26 @@ class Cv
      * @Assert\NotBlank()
      * @var ArrayCollection|Collection
      */
-    private Collection $experience;
+    private ?Collection $experience = null;
 
     /**
      *  @Assert\NotNull()
      * @Assert\NotBlank()
      * @var string
      */
-    private string $profileTitle;
+    private ?string $profileTitle = null;
 
     /**
      * @Assert\NotNull()
      * @Assert\NotBlank()
      * @var string
      */
-    private string $address;
+    private ?string $address = null;
 
     /**
      * @var string
      */
-    private string $experienceLevels;
+    private ?string $experienceLevels = null;
 
     public function __construct()
     {
@@ -58,7 +58,7 @@ class Cv
     /**
      * @return Categories
      */
-    public function getCategories(): Categories
+    public function getCategories(): ?Categories
     {
         return $this->categories;
     }
@@ -66,7 +66,7 @@ class Cv
     /**
      * @param Categories $categories
      */
-    public function setCategories(Categories $categories): void
+    public function setCategories(?Categories $categories): void
     {
         $this->categories = $categories;
     }
@@ -106,7 +106,7 @@ class Cv
     /**
      * @return string
      */
-    public function getProfileTitle(): string
+    public function getProfileTitle(): ?string
     {
         return $this->profileTitle;
     }
@@ -114,7 +114,7 @@ class Cv
     /**
      * @param string $profileTitle
      */
-    public function setProfileTitle(string $profileTitle): void
+    public function setProfileTitle(?string $profileTitle): void
     {
         $this->profileTitle = $profileTitle;
     }
@@ -122,7 +122,7 @@ class Cv
     /**
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
@@ -130,7 +130,7 @@ class Cv
     /**
      * @param string $address
      */
-    public function setAddress(string $address): void
+    public function setAddress(?string $address): void
     {
         $this->address = $address;
     }
@@ -138,7 +138,7 @@ class Cv
     /**
      * @return string
      */
-    public function getExperienceLevels(): string
+    public function getExperienceLevels(): ?string
     {
         return $this->experienceLevels;
     }
@@ -151,21 +151,6 @@ class Cv
         $this->experienceLevels = $experienceLevels;
     }
 
-    /**
-     * @return string
-     */
-    public function getPhoneNumber(): string
-    {
-        return $this->phoneNumber;
-    }
-
-    /**
-     * @param string $phoneNumber
-     */
-    public function setPhoneNumber(string $phoneNumber): void
-    {
-        $this->phoneNumber = $phoneNumber;
-    }
 
 
 

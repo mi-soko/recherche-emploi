@@ -31,7 +31,7 @@ class OfferApplyController extends AbstractController
             $offer->getJobSeekers()->add($this->getUser());
 
         $this->getDoctrine()->getManager()->flush();
-
+        $this->addFlash('info',"Votre demande a bien été pris en compte");
         return $this->redirectToRoute("app_offer_show",[
             'id' => $offer->getId()
         ]);

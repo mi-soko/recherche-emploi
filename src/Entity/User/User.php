@@ -34,11 +34,13 @@ abstract class User implements UserInterface
 
     /**
      * @Assert\NotBlank()
+     * @Assert\Length(min="3",maxMessage="4096",maxMessage="Le mot de passe min 8")
      * @ORM\Column(type="string",length=70)
      */
     protected ?string $fullName = null;
 
     /**
+     * @Assert\Length(min="7",maxMessage="11",minMessage="le numero de telephone est incorrect")
      * @Assert\NotBlank()
      * @Assert\Positive()
      * @ORM\Column(type="string",length=20)

@@ -35,6 +35,7 @@ class RegisterController extends AbstractController
             $user = $form->getData();
 
             $manager->save($user);
+            $this->addFlash('success',"Votre compte a bien été créer. Viellez vous identifier");
             return $this->redirectToRoute('app_login');
         }
 

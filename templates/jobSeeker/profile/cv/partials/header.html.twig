@@ -53,11 +53,11 @@
                 {% if app.user.role == "ROLE_COMPAGNIE" %}
                      {% for s in app.user.offers %}
                          {% if s.jobseekers.contains(user) %}
-                             <a href="{{ path('profil_create_cv') }}" data-turbolinks="false" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
+                             <a href="{{ path('#') }}" disabled data-turbolinks="false" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
                                  Accepter
                              </a>
                          {% else %}
-                             <a href="{{ path('profil_create_cv') }}" data-turbolinks="false" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
+                             <a href="#" data-turbolinks="false" class="btn disabled detail-profil-btn col-12 text-white bg-rose-dark" >
                                  Proposer un travail
                              </a>
                          {% endif %}

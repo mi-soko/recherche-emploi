@@ -19,7 +19,6 @@ class ProfileController extends AbstractController
      */
     public function index():Response
     {
-
        return $this->render("compagnie/profile/profile.html.twig",[
            'user' => $this->getUser()
        ]);

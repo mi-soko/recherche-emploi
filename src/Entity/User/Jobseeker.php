@@ -84,7 +84,7 @@ class Jobseeker extends User
     /**
      * @return Categories
      */
-    public function getCategory(): Categories
+    public function getCategory(): ?Categories
     {
         return $this->category;
     }
@@ -113,7 +113,7 @@ class Jobseeker extends User
     /**
      * @param string $address
      */
-    public function setAddress(string $address): void
+    public function setAddress(?string $address): void
     {
         $this->address = $address;
     }
