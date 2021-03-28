@@ -44,11 +44,8 @@ body{
 .card-user-name
 {
     font-size: 24px;
-    position: absolute;
-    margin-top: 45mm;
     font-weight: bold;
-    padding: 18px;
-    color: #9f9fa2;
+    color: #737375;
     opacity: 1;
 }
 

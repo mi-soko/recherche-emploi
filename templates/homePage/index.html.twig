@@ -4,7 +4,7 @@
 
     <section class="row container-fluid">
         <div class="col-md-3" >
-            <div class="card shadow position-fixed mt-2 mb-2 bg-blue-dark h-100" style="width: 300px"></div>
+            <div class="card shadow position-fixed mt-2 mb-2 h-100" style="width: 300px;background-color: #e0dada"></div>
         </div>
         <div class="col-md-9">
             <div class="mt-2 mb-3 p-4">
@@ -16,9 +16,10 @@
                         <div class="card shadow" style="width: 18rem;height: 100%">
                             <img src="{{ user.picture }}"
                                  class="card-img-top" height="250px" width="250px" alt="...">
-                            <p class="card-user-name">{{ user.fullName }}</p>
+
                             <div class="card-body">
-                                <h5 class="card-title pt-3 text-dark fw-bold " style="opacity: 0.9">{{ user.profileTitle }}</h5>
+                                <p class="card-user-name">{{ user.fullName }}</p>
+                                <h5 class="card-title pt-2 text-dark fw-bold " style="opacity: 0.9">{{ user.profileTitle }}</h5>
                                 <p class="card-text pb-4 pt-2 ">
                                     {% for skill in user.skills %}
                                         <span class="badge bg-blue-lite text-color-blue-lite">{{ skill.name }}</span>
@@ -29,6 +30,7 @@
                     </a>
                 {% endfor %}
             </div>
+            <div  >{{ knp_pagination_render(pagination) }}</div>
         </div>
     </section>
 

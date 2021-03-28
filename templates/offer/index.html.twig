@@ -4,11 +4,10 @@
 
     <section class="row container-fluid">
         <div class="col-md-3 mt-2" >
-            <div class="card shadow position-fixed bg-blue-dark h-100" style="width: 300px"></div>
+            <div class="card shadow position-fixed h-100" style="width: 300px;background-color: #e0dada"></div>
         </div>
         <div class="col-md-9">
             <div class="mt-2 mb-3 p-4">
-
                 <h1 class="detail-profil-title" >Plus de {{ offers | length }} offres disponibles</h1>
             </div>
             <div class="d-flex flex-wrap justify-content-center">
@@ -18,9 +17,10 @@
 
                             <img src="{{ offer.picture }}"
                                  class="card-img-top" height="250px" width="250px" alt="...">
-                            <p class="card-user-name">{{ offer.compagnie.compagnieName }}</p>
+
                             <div class="card-body">
-                                <h5 class="card-title pt-3 text-dark fw-bold " style="opacity: 0.9" >{{ offer.title }}</h5>
+                                <p class="card-user-name">{{ offer.compagnie.compagnieName }}</p>
+                                <h5 class="card-title pt-2 text-dark fw-bold " style="opacity: 0.9" >{{ offer.title }}</h5>
                                 <p class="card-text pb-4 pt-2 ">
                                     {% for skill in offer.skills %}
                                         <span class="badge bg-blue-lite text-color-blue-lite">{{ skill.name }}</span>

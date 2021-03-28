@@ -23,5 +23,17 @@ class JobseekerRepository extends ServiceEntityRepository
 
 
 
+    public function findAllCategoriesByNotNull()
+    {
+      return  $this->createQueryBuilder("j")
+            ->select('j')
+            ->where('j.category IS NOT NULL')
+            ->getQuery()->getResult()
+        ;
+
+
+    }
+
+
 
 }
