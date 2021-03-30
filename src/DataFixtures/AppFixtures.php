@@ -113,6 +113,7 @@ class AppFixtures extends Fixture
         $jobSeeker->setProfileTitle($dataTech[0]);
         $jobSeeker->setRole($jobSeeker->getRole());
         $jobSeeker->setCategory($this->getReference('categories-'.mt_rand(1,4)));
+
         for ($i = 0 ; $i <= 3 ; $i++)
         {
             $experience = new Experience();
@@ -195,6 +196,7 @@ class AppFixtures extends Fixture
             $offer = new Offer();
             $offer->setExperienceLevels(mt_rand(1,3));
             $offer->setCompagnie($compagnie);
+            $offer->setPicture($faker->image());
             $offer->setJobDescription($this->getJobDescriptions());
             $offer->setTitle($dataPosteOccupe[mt_rand(0,4)]);
             for ($j = 1 ; $j <= $programmation_language_arrayLength ; $j++)

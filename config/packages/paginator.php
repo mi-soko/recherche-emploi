@@ -7,7 +7,7 @@ return static function (ContainerConfigurator $configurator): void
 {
     $configurator->extension('knp_paginator', [
         'template' => [
-            'pagination' => '@KnpPaginator/Pagination/twitter_bootstrap_v4_font_awesome_sortable_link.html.twig',     // sliding pagination controls template
+            'pagination' => "@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig",     // sliding pagination controls template
         ]
     ]);
 };

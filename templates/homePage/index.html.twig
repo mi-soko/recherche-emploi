@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-9">
             <div class="mt-2 mb-3 p-4">
-                <h1 class="detail-profil-title" >Plus de {{ users | length }} CV disponibles</h1>
+                <h1 class="detail-profil-title" >Plus de {{ pagination.getTotalItemCount }} CV disponibles</h1>
             </div>
             <div class="d-flex flex-wrap justify-content-md-center justify-content-lg-center justify-content-sm-start">
                 {% for user in users %}

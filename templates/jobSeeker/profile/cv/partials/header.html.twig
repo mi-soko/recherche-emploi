@@ -53,7 +53,7 @@
                 {% if app.user.role == "ROLE_COMPAGNIE" %}
                      {% for s in app.user.offers %}
                          {% if s.jobseekers.contains(user) %}
-                             <a href="{{ path('#') }}" disabled data-turbolinks="false" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
+                             <a href="#" disabled data-turbolinks="false" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
                                  Accepter
                              </a>
                          {% else %}

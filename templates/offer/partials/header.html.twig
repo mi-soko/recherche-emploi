@@ -45,7 +45,7 @@
             <div class="container" >
 
                 {% if app.user.role == "ROLE_JOB_SEEKER" %}
-                    <a  href="{{ path('app_offer_subscribe',{id: offer.id}) }}" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
+                    <a data-turbolinks="false"  href="{{ path('app_offer_subscribe',{id: offer.id}) }}" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
                         {% if app.user.offer.contains(offer) %} Annuler {% else %}  Postuler {% endif %}
                     </a>
                 {% endif %}
