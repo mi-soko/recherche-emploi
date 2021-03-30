@@ -51,12 +51,14 @@
                 {% endif %}
 
                 {% if app.user.role == "ROLE_COMPAGNIE" %}
+                    {%  set i = 0 %}
                      {% for s in app.user.offers %}
-                         {% if s.jobseekers.contains(user) %}
+                         {% set i = i+1 %}
+                         {% if s.jobseekers.contains(user) and i <= 1 %}
                              <a href="#" disabled data-turbolinks="false" class="btn detail-profil-btn col-12 text-white bg-rose-dark" >
                                  Accepter
                              </a>
-                         {% else %}
+                         {% elseif s.jobseekers.contains(user) > 1 %}
                              <a href="#" data-turbolinks="false" class="btn disabled detail-profil-btn col-12 text-white bg-rose-dark" >
                                  Proposer un travail
                              </a>
