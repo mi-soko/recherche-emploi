@@ -1,0 +1,23 @@
+ <div class="card shadow bg-white" >
+        <div class="card-body p-5">
+            <div class="justify-content-between d-flex align-items-center  mb-5  flex-row" >
+                <h4 class="competence-title">Description de l'offre</h4>
+            </div>
+                <div class="justify-content-between d-flex align-items-center   flex-row" >
+                    <h3 class="detail-profil-experience-title" >
+                        <i class="fas fa-briefcase fs-1"></i>
+                        {{ offer.title  | capitalize }}
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <h6 class="detail-profil-experience-title" ><i class="fas fs-1 fa-chart-pie"></i> {{ offer.categories.name | capitalize }} </h6>
+                    <p class="text-justify fw-bold fs-4 description " >
+                       {{ offer.jobDescription | raw }}
+                    </p>
+                    <div class="dropdown-divider mt-5 mb-5" ></div>
+                </div>
+
+
+        </div>
+        </div>
+

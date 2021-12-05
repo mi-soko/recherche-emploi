@@ -1,0 +1,100 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="container p-5" >
+
+        {{ form_start(form) }}
+            <h1 class="detail-profil-title mb-5" >Creer une offre</h1>
+            <div class="card mt-4" >
+                <div class="card-body" >
+                    <h1 class="detail-profil-sub-title" >Catégorie</h1>
+                    <div class="card-body p-0 pb-3" >
+                        <div class="form-group">
+                            {{ form_widget(form.categories,{'attr':{'class':"custom-select form-control col-12"}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                   <div class="card mt-3" >
+                        <div class="card-body" >
+                            <h1 class="detail-profil-sub-title" >Titre</h1>
+                            <div class="card-body p-0 pb-3" >
+                                <div class="form-group">
+                                    <label for="" class="" ></label>
+                                    {{ form_widget(form.title) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="card mt-3">
+                <div class="card-body" >
+                    <h1 class="detail-profil-sub-title" >Votre niveau d'expérience</h1>
+                    <div class="card-body p-0 pb-3" >
+                        <div class="form-group">
+                            <p class="p-4 text-justify" >
+                                Ces 3 niveaux d'expérience sont utilisés à titre indicatif et correspondent habituellement aux niveaux junior (0-2 ans), intermédiaire (2-7 ans) et senior (7 ans et +).
+                            </p>
+
+                            <div >
+
+                                {{ form_widget(form.experienceLevels) }}
+                                <button value="1" name="" class="btn text-color-blue-lite
+                                        {% if form.experienceLevels.vars.value == "1" %}
+                                            active-btn-experience
+                                        {% endif %}
+                                        "
+                                        id="btn-experience" >0-2 ans</button>
+                                            <button value="2" name="" class="btn text-color-blue-lite
+                                          {% if form.experienceLevels.vars.value ==  "2"%}
+                                            active-btn-experience
+                                            {% endif %}
+                                            " id="btn-experience">2-7 ans </button>
+                                <button value="3" name=""
+                                        class="btn text-color-blue-lite
+                                                  {% if form.experienceLevels.vars.value == "3"%}
+                                                    active-btn-experience
+                                             {% endif %}
+                                            "
+
+                                        id="btn-experience" >7ans et +</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3" >
+                <div class="card-body" >
+                    <h1 class="detail-profil-sub-title" >Compétences</h1>
+                    <p>
+                        Merci d'indiquer l'ensemble de vos compétences que vous pensez pertinentes et qu'un client pourrait rechercher : logiciels/technos que vous maîtrisez, vos domaines de spécialités, vos compétences relationnelles, managériales, les secteurs d'activité dont vous êtes expert etc.
+                        Tout ce qui pourrait intéresser un client et l'aider à trouver un profil comme le vôtre
+                    </p>
+                    <div class="card-body p-0 pb-3" >
+                        <div class="form-group">
+                            {{ form_widget(form.skills,{'attr':{'class':"js-select-multiple form-control col-md-12 col-12"}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="card mt-3" >
+            <div class="card-body" >
+                <h1 class="detail-profil-sub-title" >Description</h1>
+                <div class="card-body p-0 pb-3" >
+                    <div class="form-group">
+                        <label for="" class="" ></label>
+                        {{ form_widget(form.jobDescription) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <button class="btn bg-rose-dark text-white col-4 detail-profil-btn offset-4 off mt-5 mb-5 " >Terminer</button>
+        {{ form_end(form) }}
+    </section>
+    <script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'compagnie/profile/partials/header.html.twig' %}
+
+{#    section Competance   #}
+
+    <section class="container mt-4">
+
+        <div class="row" >
+
+            <div class="col-md-4 col-4 rounded-pill " >
+                {% include 'compagnie/profile/partials/cardFormation.html.twig'%}
+                    <div class="pb-3" ></div>
+                {% include 'compagnie/profile/partials/cardLanguage.html.twig'%}
+            </div>
+
+            <div class="col-md-8 col-8 rounded-pill" >
+                {% include '/compagnie/profile/partials/cardOffer.html.twig' %}
+
+            </div>
+        </div>
+    </section>
+{#    section formation #}
+
+
+{% endblock %}

@@ -1,0 +1,167 @@
+body{
+    background-color: #f7f7f5;
+}
+.bg-blue-lite
+{
+    /*font-family: Agrandir Tight,Arial,Helvetica,sans-serif;*/
+    font-family: Moderat,Arial,Helvetica,sans-serif;
+    background-color: #bac0f7;
+}
+
+.bg-blue-lite:hover
+{
+    background-color: #8087f5;
+}
+
+.text-color-blue-lite,.text-color-blue-lite :hover
+{
+    color: #043072;
+    background-color: #c4c5ec;
+}
+.active-btn-experience
+{
+    background-color: #24367c !important;
+    color: white;
+}
+.bg-blue-dark
+{
+    background-color: #014554;
+}
+.bg-blue-dark:hover
+{
+    background-color: #026f85;
+}
+.bg-rose-dark
+{
+    background-color: #fa7070;
+}
+.bg-rose-dark:hover
+{
+    transition: 0.5s;
+    background-color: #fc8b8b;
+}
+
+.card-user-name
+{
+    font-size: 24px;
+    font-weight: bold;
+    color: #737375;
+    opacity: 1;
+}
+
+.container-detail-profile
+{
+    height: 50vh;
+}
+.detail-profil-image
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.detail-profil-image > img
+{
+    align-content: center;
+    width: 240px;
+    height: 240px;
+    border-radius: 80%;
+
+}
+.detail-profil-title
+{
+    font-size: 32px;
+    font-weight: 700;
+    color: #38383e;
+    word-break: break-word;
+}
+.detail-profil-sub-title
+{
+    margin-bottom: .5em;
+    color: #38383e;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.25;
+    word-break: break-word;
+}
+.detail-profil-card-text
+{
+    font-weight: 600;
+}
+.detail-profil-btn
+{
+    padding: 15px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+.competence-title
+{
+    font-size: 24px !important;
+    color: #979a9d;
+}
+.detail-profil-card-link
+{
+    text-decoration: none;
+    color: #014554;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.detail-profil-experience-title
+{
+    color: #374b54;
+    font-size: 20px;
+    font-weight: bold;
+}
+.detail-profil-experience-subtitle
+{
+    color: #374b54;
+    font-size: 14px;
+    font-weight: bold;
+}
+.select2-selection__choice
+{
+    background-color: #043072 !important;
+    color: white !important;
+}
+
+.container-form-error
+{
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.description > p
+{
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
+
+.card-container
+{
+    grid-template-columns: 20px 50px 100px;
+    grid-template-rows: 80px auto 80px;
+    column-gap: 10px;
+    row-gap: 15px;
+}
+
+.notification-custom
+{
+    position: absolute ;
+
+    padding:4px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 100%;
+    color: white;
+    margin-left: -22px;
+    margin-top: -8px;
+}
+.date-notification
+{
+    font-size: 12px !important;
+}
+.notification-hover-item:hover
+{
+    background-color: #b0cbff !important;
+    transition: background-color .2s;
+}

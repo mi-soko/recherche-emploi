@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ include('offer/partials/header.html.twig') }}
+
+    <div class="row container-fluid mt-3">
+        <div class="col-md-4" >
+            {{ include('offer/partials/cardSkill.html.twig') }}
+            {{ include('offer/partials/cardUserApplyed.html.twig') }}
+        </div>
+        <div class="col-md-8" >
+            {{ include('offer/partials/cardJobDescription.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}
+

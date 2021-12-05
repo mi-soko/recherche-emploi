@@ -1,0 +1,13 @@
+<div class="card shadow bg-white" >
+    <div class="card-body p-5">
+        <h1 class="competence-title pb-3">Compétence ({{ offer.skills.count }})</h1>
+        <div class="row row-cols-md-2" >
+            {% for skill in offer.skills  %}
+                <div class="card-body">
+                    <a href="#" class="detail-profil-card-link" >{{ skill.name }}</a>
+                    <div class="dropdown-divider" ></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

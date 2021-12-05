@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {%if templateName == "job-seeker" %}
+    {% set title = "Créer un compte demendeur d'emploie" %}
+
+        {% set link = "compagnie" %}
+    {% set btnName = "Créer un compte entreprise " %}
+    {% else %}
+    {% set title = "Créer un compte entreprise " %}
+        {% set link = "job-seeker" %}
+        {% set btnName = "Créer un compte Demendeur d'emploie" %}
+   {% endif %}
+    <section class="container " >
+
+        <div class="row w-auto shadow p-5 bg-white card-group rounded flex-row" >
+            <div class="col-md-6" >
+                <div class="p-4" >
+                    <img src="{{ asset('images/walkins-jobs.jpg') }}" class="img-fluid h-100" alt="">
+                </div>
+                <div class="mt-5 p-4 " >
+                    <a href="{{ path('app_register',{'account': link }) }}" class="bg-blue-dark text-white rounded-pill p-2 col-12 btn" >{{ btnName }}</a>
+                </div>
+            </div>
+            <div class="col-md-6" >
+                {{ form_start(form,{'attr':{ 'class':"p-4" }}) }}
+                    <h1 class="h3 mb-3 font-weight-normal detail-profil-title">{{ title }}</h1>
+                    <div class="form-group" >
+                        <label for="fullName" class="form-label rounded-pill fw-bold"  >Nom Complet</label>
+                        {{ form_widget(form.fullName,{'attr':{'class':'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group" >
+
+                        <label for="Email" class="form-label rounded-pill fw-bold" >Email</label>
+                       <div class="container-form-error" >
+                           {{ form_errors(form.email,{'attr':{'class':'mb-5'}}) }}
+                       </div>
+                        {{ form_widget(form.email,{'attr':{'class':''}}) }}
+                    </div>
+
+                    {% if form.compagnieName is defined %}
+
+                            <div class="form-group" >
+                                <label for="compagnieName" class="form-label rounded-pill fw-bold" >Nom de votre entreprise</label>
+                                <div class="container-form-error" >
+                                    {{ form_errors(form.compagnieName,{'attr':{'class':'mb-5'}}) }}
+                                </div>
+                                {{ form_widget(form.compagnieName,{'attr':{'class':'form-control'}}) }}
+                            </div>
+
+                    {% endif %}
+
+                    <div class="form-group" >
+                        <label for="inputPassword" class="form-label rounded-pill fw-bold" >Numéro Telephone</label>
+                        <div class="container-form-error" >
+                            {{ form_errors(form.phoneNumber,{'attr':{'class':'mb-5'}}) }}
+                        </div>
+                        {{ form_widget(form.phoneNumber,{'attr':{'class':'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group" >
+                        <label for="inputPassword" class="form-label rounded-pill fw-bold" >Password</label>
+                        <div class="container-form-error" >
+                            {{ form_errors(form.plainPassword,{'attr':{'class':'mb-5'}}) }}
+                        </div>
+                        {{ form_widget(form.plainPassword,{'attr':{'class':'form-control'}}) }}
+                    </div>
+
+                    <div class="p-2 mt-4 " >
+                        <button class="btn bg-rose-dark text-white rounded-pill col-12" >
+                            S'enregister
+                        </button>
+                    </div>
+
+                    <div class="p-1 mt-4 fw-bold ml-0" >
+                        <span class="text-justify" >Vous avez dèja un compte
+                            <a class="text-primary"  href="{{ path('app_login') }}" > Se connecter</a>
+                        </span>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}

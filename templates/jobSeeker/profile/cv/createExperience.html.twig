@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    {%  include('/jobSeeker/profile/cv/partials/header.html.twig')  %}
+    <section class="container text-white shadow-lg bg-dark p-5 rounded-3" style="margin-top: -40px;" >
+
+            {{ form_start(form) }}
+
+        <div class="d-flex flex-row align-items-center mb-4 justify-content-between" >
+            <h1 class="detail-profil-title text-white" >Ajouter une nouvelle experience</h1>
+            <button class="btn bg-rose-dark text-white" type="submit" >Terminer</button>
+        </div>
+            <div class="form-group mb-2" >
+                <label for="Email" class="form-label rounded-pill fw-bold" >Nom de l'entreprise</label>
+                <div class="container-form-error" >
+                    {{ form_errors(form.compagnieName,{'attr':{'class':'mb-5'}}) }}
+                </div>
+                {{ form_widget(form.compagnieName,{'attr':{'class':''}}) }}
+            </div>
+
+            <div class="form-group mb-2" >
+                <label for="Email" class="form-label rounded-pill fw-bold" >Poster occupe</label>
+                <div class="container-form-error" >
+                    {{ form_errors(form.posteOccupe,{'attr':{'class':'mb-5'}}) }}
+                </div>
+                {{ form_widget(form.posteOccupe,{'attr':{'class':''}}) }}
+            </div>
+
+            <div class="form-group mb-2" >
+                <label for="Email" class="form-label fw-bold" >Dure</label>
+                <div class="container-form-error" >
+                    {{ form_errors(form.dure,{'attr':{'class':'mb-5'}}) }}
+                </div>
+                {{ form_widget(form.dure,{'attr':{'class':''}}) }}
+            </div>
+
+            <div class="form-group mb-2" >
+                <label for="Email" class="form-label fw-bold" >Description</label>
+                <div class="container-form-error" >
+                    {{ form_errors(form.description,{'attr':{'class':'mb-5'}}) }}
+                </div>
+                {{ form_widget(form.description,{'attr':{'class':'form-control rounded'}}) }}
+            </div>
+            {{ form_end(form) }}
+
+
+
+    </section>
+
+{% endblock %}

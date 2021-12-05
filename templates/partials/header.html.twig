@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" data-turbolinks-eval="false">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('/images/Logo-Easyjob.png') }}" style="width: 100px" height="40px" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if app.user is not null %}
+                    <li class="nav-item btn btn-outline-secondary rounded-pill" style="margin-right: 8px;">
+                        <a class="nav-link active fw-bold " aria-current="page"
+                           href="{{ path('app_index') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item btn bg-rose-dark fw-bold rounded-pill">
+                        <a class="nav-link active text-white" aria-current="page" href="{{ path('app_offer_list') }}">Offre</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <ul class="mr-0 navbar-nav">
+
+                    {% if app.user is not null %}
+                        {% if app.user.role == "ROLE_JOB_SEEKER" %}
+                <li class="nav-item btn p-0 bg-blue-dark " style="margin-right: 30px;">
+                        <a class="nav-link text-white" href="{{ path('profil_detail_cv') }}">
+                            <i class="fas fa-user"></i>
+                            {{ app.user.fullName }}
+                        </a>
+                </li>
+                        {% endif %}
+                    {% endif %}
+
+                <li class="nav-item">
+                    {% if app.user is not null %}
+                        {% if  app.user.role == "ROLE_COMPAGNIE" %}
+                            <a class="nav-link nav-link text-white text-center bg-blue-dark rounded" href="{{ path('app_compagnie_index') }}">
+                                <i class="fas fa-user"></i> {{ app.user.fullName }}
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </li>
+
+                <li class="nav-item dropdown align-self-center">
+                    {% if app.user is not null %}
+                        {% if app.user.role == "ROLE_JOB_SEEKER" %}
+                            <span class="notification-custom bg-rose-dark">{{ app.user.notifications.count }}</span>
+
+                            <a class="nav-link text-white text-center bg-blue-lite rounded" href="#"
+                               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell text-center"></i>
+                            </a>
+                            <ul class="dropdown-menu" style="position: absolute !important; margin-left: -500px; width: 500px "
+                                aria-labelledby="navbarDropdown">
+                                {% for notification in app.user.notifications | filter(n => n.isRead == false) %}
+                                    <li class="border-bottom p-3  notification-hover-item" >
+                                       <div class="row" >
+                                           <div class="col-md-2">
+                                               <img src="{{ notification.offer.picture }}" class="rounded-circle shadow" width="50px" height="50px" />
+                                           </div>
+                                           <div class="col-8" >
+                                                <a  href="{{ path('app_offer_show',{id:notification.offer.id}) }}"  class="d-flex flex-column text-dark text-decoration-none " >
+                                                    <h1 class="detail-profil-sub-title text-decoration-none"
+                                                      >
+                                                        {{ notification.offer.title }}
+                                                    </h1>
+                                                    <p class="fw-bold mb-0" > catégorie {{ notification.offer.categories.name }}</p>
+                                                </a>
+                                                <span class="rounded-circle date-notification fw-bold fs-6" > date de publication : {{ notification.offer.createdAt | date}} </span>
+                                           </div>
+                                       </div>
+                                    </li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                        {% endif %}
+                    {% endif %}
+                </li>
+
+                <li class="nav-item" style="margin-left: 10px" >
+                    {% if app.user is not null %}
+                            <a class="nav-link nav-link text-white text-center bg-blue-lite rounded" href="{{ path('app_logout') }}">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </a>
+                    {% endif %}
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+

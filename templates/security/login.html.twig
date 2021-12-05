@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <section class="container " >
+
+        <div class="row w-auto shadow p-5 bg-white card-group rounded flex-row" >
+            <div class="col-md-6" >
+                <div class="p-4" >
+                    <img src="{{ asset('images/walkins-jobs.jpg') }}" class="img-fluid" alt="">
+                </div>
+                <div class="mt-5  " >
+                    <a href="{{ path('app_register',{'account':'compagnie'}) }}" class="btn-dark rounded fw-bold p-2 col-5 btn" >Créer un compte Entreprise</a>
+                    <a href="{{ path('app_register',{'account':'job-seeker'}) }}" class="bg-blue-dark text-white rounded p-2 fw-bold col-5 btn" >Créer un compte demandeur d'emploie</a>
+                </div>
+            </div>
+            <div class="col-md-6 p-4" >
+                <form class="p-4" method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    <h1 class="h3 mb-3 font-weight-normal detail-profil-title">Login</h1>
+                    <div class="form-group" >
+                        <label for="inputEmail" class="form-label fw-bold" >Email</label>
+                        <input type="email" placeholder="Ex: soko@gmail.com" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+                    </div>
+                    <div class="form-group" >
+                        <label for="inputPassword" class="form-label rounded-pill fw-bold" >Password</label>
+                        <input type="password" placeholder="**************" name="password" id="inputPassword" class="form-control" required>
+                    </div>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+                    <div class="p-1" >
+                        <button class="btn bg-rose-dark text-white rounded-pill col-12" >
+                            Se connecter
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
+
+
+
